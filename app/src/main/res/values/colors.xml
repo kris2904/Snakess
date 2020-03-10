@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorButtonAvtor_Reg">#ebebeb</color>
+    <color name="colorwhite">#212121</color>
+    <color name="iconka_edit">#666666</color>
+    <color name="colorGray">#A8A7A7</color>
 </resources>
