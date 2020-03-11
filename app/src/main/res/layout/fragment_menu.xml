@@ -25,13 +25,29 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:orientation="horizontal">
-     <Button
-         android:id="@+id/bottonStart"
-         android:layout_width="80dp"
-         android:layout_height="80dp"
-         android:background="@drawable/button_stroke_blake_prass_white"
-         android:text="GO!"
-         android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/bottonStart_of_my_Game"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_stroke_blake_prass_white"
+            android:text="Моя игра!" />
+
+        <Button
+            android:id="@+id/bottonStart_your_Game"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:background="@drawable/button_stroke_blake_prass_white"
+            android:text="Чужая игра!"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/bottonGame_off"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:background="@drawable/button_stroke_blake_prass_white"
+            android:text="Выйти!"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </RelativeLayout>
