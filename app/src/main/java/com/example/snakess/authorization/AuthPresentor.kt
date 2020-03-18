@@ -15,9 +15,9 @@ class AuthPresentor:MvpPresenter<IAurhView>() {
 
     }
 
-    fun registration(login: String, psss:String){
+    fun authtorization(login: String, psss:String){
 
-        userRepository.registration({
+        userRepository.authorization({
             if(login.isEmpty())
                 viewState.showError(text = "поле логин не заполнено")
             if (psss.isEmpty())

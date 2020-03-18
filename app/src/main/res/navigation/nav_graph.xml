@@ -20,5 +20,6 @@
             android:id="@+id/action_RegistrationFragment_to_AuthorizationFragment"
             app:destination="@id/nav_AuthorizationFragment" />
     </fragment>
+    <include app:graph="@navigation/nav_graph_main" />
 
 </navigation>

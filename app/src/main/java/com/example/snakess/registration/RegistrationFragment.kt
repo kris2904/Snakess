@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -14,6 +15,8 @@ import com.example.snakess.R
 import com.example.snakess.domain.models.User
 import kotlinx.android.synthetic.main.fragment_authorization.*
 import kotlinx.android.synthetic.main.fragment_registration.*
+import kotlinx.android.synthetic.main.fragment_registration.edLogin
+import kotlinx.android.synthetic.main.fragment_registration.edPassword
 
 /**
  * A simple [Fragment] subclass.
@@ -40,11 +43,15 @@ class RegistrationFragment : MvpAppCompatFragment(),IRegistrationView {
         button_text_authtorization.setOnClickListener(){
             this.findNavController().navigate(R.id.nav_AuthorizationFragment)
         }
+        btRegistration.setOnClickListener(){
+            presentorRegistration.registration(login = "${edLogin.text}", psss = "${edPassword.text}")
+            this.findNavController().navigate(R.id.nav_AuthorizationFragment)
+        }
 
     }
 
     override fun showError(text: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
     }
 
     override fun validation(login: String, pass: String) {

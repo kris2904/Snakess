@@ -23,8 +23,8 @@ class MainActivity : MvpAppCompatActivity(), IMainView {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         else{
-            //this.findNavController().navigate(R.id.navHostMain1)
-            findNavController(R.id.navHostMain1).navigateUp()
+            this.findNavController(R.id.menuFragment).navigate(R.id.navHostMain1)
+           //findNavController(R.id.navHostMain1).navigateUp()
 
         }
     }
