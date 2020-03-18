@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    tools:context=".activitys.MainActivity">
 
     <fragment
         android:id="@+id/navHostMain1"
@@ -13,10 +13,5 @@
         android:layout_height="wrap_content"
         app:navGraph="@navigation/nav_graph_main"
         app:defaultNavHost="true" />
-    <TextView
-        android:id="@+id/txtLoding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/loding"
-        android:layout_gravity="center"/>
+
 </FrameLayout>

@@ -1,21 +1,16 @@
-package com.example.snakess.main
+package com.example.snakess.activitys
 
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
-import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.snakess.R
-import com.example.snakess.activitys.LoginActivity
 import com.example.snakess.domain.models.User
+import com.example.snakess.main.IMainView
+import com.example.snakess.main.MainPresenter
 
-class MainActivity : MvpAppCompatActivity(),IMainView {
+class MainActivity : MvpAppCompatActivity(), IMainView {
     @InjectPresenter
     lateinit var presenter: MainPresenter
 
@@ -23,26 +18,28 @@ class MainActivity : MvpAppCompatActivity(),IMainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if(true)//(!presenter.checkAuth())
+        if(presenter.checkAuth())
          {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         else{
-            onSupportNavigateUp()
+            //this.findNavController().navigate(R.id.navHostMain1)
+            findNavController(R.id.navHostMain1).navigateUp()
+
         }
     }
 
-    override fun onCreateView(
-        parent: View?,
-        name: String,
-        context: Context,
-        attrs: AttributeSet
-    ): View? {
-        return super.onCreateView(parent, name, context, attrs)
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
+
+/*
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.navHostMain1).navigateUp()
     }
+*/
 
     override fun checkAuth(login: User, pass: User) {
 

@@ -30,9 +30,9 @@ class AuthorizationFragment : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        btAuthorization.setOnClickListener(){
-           this.findNavController().navigate(R.id.navHostMain1)
-
+           this.findNavController().navigate(R.id.nav_graph_main)
        }
+       //работает
        button_text_registration.setOnClickListener(){
            this.findNavController().navigate(R.id.nav_RegistrationFragment)
        }
