@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -36,8 +37,17 @@ dependencies {
     //RecyclerView
     implementation 'com.android.support:recyclerview-v7:29.0.3'
     //
+    //MVP
+    implementation 'tech.schoolhelper:moxy-x:1.7.0'
+    implementation 'tech.schoolhelper:moxy-x-androidx:1.7.0'
+    kapt 'tech.schoolhelper:moxy-x-compiler:1.7.0'
+
+    //Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 }

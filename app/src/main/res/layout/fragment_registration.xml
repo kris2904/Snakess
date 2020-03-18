@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationFragment">
+    tools:context=".registration.RegistrationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -15,34 +15,42 @@
         android:orientation="vertical"
         >
 
-    <EditText
-        android:id="@+id/edLogin"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/costome_edit_text_bg"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/login" />
+        <EditText
+            android:id="@+id/edLogin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/costome_edit_text_bg"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/login" />
 
-    <EditText
-        android:id="@+id/edPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/costome_edit_text_bg"
-        android:drawableStart="@drawable/ic_star"
-        android:hint="@string/password" />
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/costome_edit_text_bg"
+            android:drawableStart="@drawable/ic_star"
+            android:hint="@string/password" />
 
-    <EditText
-        android:id="@+id/edPasswordConf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/costome_edit_text_bg"
-        android:drawableStart="@drawable/ic_star"
-        android:hint="@string/re_password" />
+        <EditText
+            android:id="@+id/edPasswordConf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/costome_edit_text_bg"
+            android:drawableStart="@drawable/ic_star"
+            android:hint="@string/re_password" />
 
-</LinearLayout>
+           <TextView
+               android:id="@+id/button_text_authtorization"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/avtoriz"
+               android:textSize="@dimen/online_size"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btRegistration"

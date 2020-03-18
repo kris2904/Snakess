@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthorizationFragment">
+    tools:context=".authorization.AuthorizationFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -32,6 +32,13 @@
             android:background="@drawable/costome_edit_text_bg"
             android:drawableStart="@drawable/ic_star"
             android:hint="@string/password" />
+        <TextView
+            android:id="@+id/button_text_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registration"
+            android:textSize="@dimen/online_size"/>
+
 
 
     </LinearLayout>

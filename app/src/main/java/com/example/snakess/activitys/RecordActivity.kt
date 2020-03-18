@@ -1,7 +1,8 @@
-package com.example.snakess
+package com.example.snakess.activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.snakess.R
 
 class RecordActivity : AppCompatActivity() {
 
