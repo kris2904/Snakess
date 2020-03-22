@@ -27,7 +27,7 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bottonGame_off.setOnClickListener(){
-            this.findNavController().navigate(R.id.nav_AuthorizationFragment)
+
         }
     }
 

@@ -2,7 +2,6 @@ package com.example.snakess.authorization
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.domain.models.User
 import com.example.snakess.domain.repositories.UserRepository
 import com.example.snakess.registration.RegistrationPresenter
 

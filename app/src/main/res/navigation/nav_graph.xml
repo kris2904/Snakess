@@ -3,23 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/nav_AuthorizationFragment">
-    <fragment
-        android:id="@+id/nav_AuthorizationFragment"
-        android:name="com.example.snakess.authorization.AuthorizationFragment"
-        tools:layout="@layout/fragment_authorization">
-        <action
-            android:id="@+id/action_AuthorizationFragment_to_RegistrationFragment"
-            app:destination="@id/nav_RegistrationFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/nav_RegistrationFragment"
-        android:name="com.example.snakess.registration.RegistrationFragment"
-        tools:layout="@layout/fragment_registration">
-        <action
-            android:id="@+id/action_RegistrationFragment_to_AuthorizationFragment"
-            app:destination="@id/nav_AuthorizationFragment" />
-    </fragment>
-    <include app:graph="@navigation/nav_graph_main" />
+    >
+
+
+
 
 </navigation>

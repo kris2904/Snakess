@@ -3,7 +3,8 @@ package com.example.snakess.registration
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.example.snakess.domain.models.User
+import com.example.snakess.domain.di.models.User
+
 import java.util.*
 
 

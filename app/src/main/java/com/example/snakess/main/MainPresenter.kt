@@ -2,7 +2,7 @@ package com.example.snakess.main
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.domain.models.User
+import com.example.snakess.domain.di.models.User
 import com.example.snakess.domain.repositories.UserRepository
 
 @InjectViewState

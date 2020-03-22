@@ -12,7 +12,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.R
-import com.example.snakess.domain.models.User
+import com.example.snakess.domain.di.models.User
 import kotlinx.android.synthetic.main.fragment_authorization.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_registration.edLogin
@@ -41,12 +41,14 @@ class RegistrationFragment : MvpAppCompatFragment(),IRegistrationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button_text_authtorization.setOnClickListener(){
-            this.findNavController().navigate(R.id.nav_AuthorizationFragment)
+
         }
         btRegistration.setOnClickListener(){
-            presentorRegistration.registration(login = "${edLogin.text}", psss = "${edPassword.text}")
-            this.findNavController().navigate(R.id.nav_AuthorizationFragment)
+            presentorRegistration.registration(login = "${edLogin.text}", psss = "${edPassword.text}")}
+        btRegistration.setOnClickListener(){
+
         }
+
 
     }
 
