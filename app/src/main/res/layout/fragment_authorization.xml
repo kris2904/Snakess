@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authorization.AuthorizationFragment">
+    tools:context=".presention.credentials.authorization.AuthorizationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,19 +38,35 @@
             android:text="@string/registration"
             android:textSize="@dimen/online_size"/>
 
-
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btAuthorization"
+</LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorButtonAvtor_Reg"
-        android:text="@string/avtoriz"
-        android:textColor="@color/colorwhite" />
+        android:layout_marginBottom="20dp">
+        <Button
+            android:id="@+id/btAuthorization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorButtonAvtor_Reg"
+            android:text="@string/avtoriz"
+            android:textColor="@color/colorwhite" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/flBtnContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cccccccc"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+    </FrameLayout>
 </RelativeLayout>

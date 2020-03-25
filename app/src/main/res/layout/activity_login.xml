@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activitys.LoginActivity"
-    android:id="@+id/container_auth_reg"
+    android:id="@+id/container"
     >
 
 

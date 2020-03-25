@@ -1,15 +1,14 @@
-package com.example.snakess.main
+package com.example.snakess.domain.menu
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.domain.di.models.User
 import com.example.snakess.domain.repositories.UserRepository
 
 @InjectViewState
-class MainPresenter : MvpPresenter<IMainView>() {
-    private var userRepository = UserRepository()
+class MenuPresenter : MvpPresenter<IMenuView>() {
+   // private var userRepository = UserRepository
 
-    fun checkAuth(): Boolean {
+    /*fun checkAuth(): Boolean {
         //Проверка, если в БД есть пользователь
         val userFromBD = userRepository.fetchUser()
         if(userFromBD != null){
@@ -17,5 +16,5 @@ class MainPresenter : MvpPresenter<IMainView>() {
         }else{
             return false
         }
-    }
+    }*/
 }

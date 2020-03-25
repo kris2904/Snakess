@@ -1,4 +1,4 @@
-package com.example.snakess
+package com.example.snakess.domain.menu
 
 
 import android.os.Bundle

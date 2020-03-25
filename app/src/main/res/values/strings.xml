@@ -10,4 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="table_record">Таблица рекордов</string>
     <string name="loding">Loding...</string>
+    <string name="error_login_passwd_undefined">поля логина и пароля не заполнены</string>
+    <string name="error_login_undefined">поле логин не заполненно</string>
+    <string name="error_pass_undefined">поле пароль не заполненно</string>
 </resources>
