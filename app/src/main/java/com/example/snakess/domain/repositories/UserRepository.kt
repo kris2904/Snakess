@@ -17,6 +17,7 @@ class UserRepository {
     constructor(storage: UserStorage, rest: UserRestApi) {
         this.storage = storage
         this.rest = rest
+
     }
 
     fun registration(observer: SubRX<User>, login: String, pass: String) {
@@ -35,10 +36,26 @@ class UserRepository {
 
     fun getUser() = storage.user
 
+    /* fun refreshToken(observer: SubRX<Token>,access:String,refresh:String) {
+         rest.refreshToken(access,refresh)
+             .doOnNext()
+             .standardSubscribeIO()
+     }*/
     fun refreshToken(token: Token): Token {
-        TODO("Not yet implemented")
+       TODO()
     }
-    fun fetchUser(){
+   /* fun refreshToken(observer: SubRX<Token>, refresh: String)  {
+        rest.refreshToken(refresh)
+            .doOnNext {
+                storage.sTokens(it)
+            }
+            .map {
+                return@map Token(it.access,it.refresh)
+            }
+            .standardSubscribeIO(observer)
+    }*/
+
+    fun fetchUser() {
 
     }
 

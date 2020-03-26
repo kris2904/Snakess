@@ -1,20 +1,28 @@
 package com.example.snakess.domain.repositories.local
 
+import com.example.snakess.domain.di.models.Token
 import com.example.snakess.domain.di.models.User
 import javax.inject.Inject
 
-class UserStorage {
+class UserStorage:IUserStorge {
     var user: User? = null
         private set
+    var token:Token?=null
+     private set
 
     @Inject
     constructor()
 
-    fun save(user: User) {
+    override fun save(user: User) {
         this.user = user
     }
 
-    fun dropCredentials() {
+    override fun dropCredentials() {
         user = null
     }
+
+    override fun saveTokens(token: Token) {
+        this.token=token
+    }
+
 }

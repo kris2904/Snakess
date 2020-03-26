@@ -1,7 +1,9 @@
 package com.example.snakess.domain.repositories.rest
 
+import android.database.Observable
 import android.util.Log
 import com.example.snakess.activitys.LoginActivity
+import com.example.snakess.base.SubRX
 import com.example.snakess.domain.di.models.Token
 import com.example.snakess.domain.repositories.UserRepository
 import com.example.snakess.exceptions.AuthException
@@ -10,13 +12,15 @@ import okhttp3.Request
 import okhttp3.Response
 import java.lang.IllegalArgumentException
 import java.net.HttpURLConnection
+import java.util.*
 import java.util.concurrent.locks.ReentrantLock
 import javax.inject.Inject
 
-class TokenInterceptor:Interceptor {
-    companion object{
-        const val HEADER_AUTH="access_token"
+class TokenInterceptor : Interceptor {
+    companion object {
+        const val HEADER_AUTH = "access_token"
     }
+
     private val userRepository: UserRepository
     private val lock = ReentrantLock()
 
@@ -43,7 +47,7 @@ class TokenInterceptor:Interceptor {
         if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
             if (lock.tryLock()) {
                 try {
-
+                    addAuth(original, token)
                     token = userRepository.refreshToken(token)
 
                 } catch (e: Exception) {
@@ -55,9 +59,7 @@ class TokenInterceptor:Interceptor {
                 }
 
                 return chain.proceed(addAuth(original, token))
-            }
-
-            else {
+            } else {
                 lock.lock()
                 lock.unlock()
 
