@@ -7,8 +7,7 @@ import javax.inject.Inject
 class UserStorage:IUserStorge {
     var user: User? = null
         private set
-    var token:Token?=null
-     private set
+
 
     @Inject
     constructor()
@@ -22,7 +21,7 @@ class UserStorage:IUserStorge {
     }
 
     override fun saveTokens(token: Token) {
-        this.token=token
+        user?.token = token
     }
 
 }

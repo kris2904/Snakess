@@ -1,11 +1,14 @@
 package com.example.snakess.domain.repositories
 
+import android.os.SystemClock
 import com.example.snakess.base.SubRX
 import com.example.snakess.base.standardSubscribeIO
 import com.example.snakess.domain.di.models.Token
 import com.example.snakess.domain.di.models.User
 import com.example.snakess.domain.repositories.local.UserStorage
 import com.example.snakess.domain.repositories.rest.api.UserRestApi
+import retrofit2.Call
+import java.net.HttpURLConnection
 import javax.inject.Inject
 
 
@@ -41,20 +44,34 @@ class UserRepository {
              .doOnNext()
              .standardSubscribeIO()
      }*/
-    fun refreshToken(token: Token): Token {
+    /*fun refreshToken(token: Token): Token {
        TODO()
-    }
-   /* fun refreshToken(observer: SubRX<Token>, refresh: String)  {
+    }*/
+  /* fun refreshToken(observer: SubRX<Token>, refresh: String)  {
         rest.refreshToken(refresh)
             .doOnNext {
-                storage.sTokens(it)
+                storage.saveTokens(it)
             }
             .map {
                 return@map Token(it.access,it.refresh)
             }
             .standardSubscribeIO(observer)
     }*/
+    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
 
+        val response = rest.refreshToken(token.refresh).execute()
+        response.body()?.let {
+            storage.saveTokens(it)
+            return it
+        }
+
+        if (onRetry(response.code())) {
+            SystemClock.sleep(500)
+            return refreshToken(token)
+        }
+
+        return null
+    }
     fun fetchUser() {
 
     }

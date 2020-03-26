@@ -22,8 +22,6 @@ class UserRestApi : ABaseRestApi<IUserRestApiService> {
     fun login(login: String, password: String) =
         service.login(User(login = login, password = password))
 
-  //  fun refreshToken(refreshToken: String)
-//            = service.refreshToken("refresh_token", refreshToken, CLIENT_ID, CLIENT_SECRET)
   fun refreshToken(refresh:String) =
       service.refreshToken(refresh)
 }

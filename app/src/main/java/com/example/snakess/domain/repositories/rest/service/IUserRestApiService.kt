@@ -3,6 +3,7 @@ package com.example.snakess.domain.repositories.rest.service
 import com.example.snakess.domain.di.models.Token
 import com.example.snakess.domain.di.models.User
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.*
 
 interface IUserRestApiService {
@@ -20,5 +21,5 @@ interface IUserRestApiService {
     fun login(@Body user: User): Observable<User>
 
     @POST(value = "/user/v1/refresh")
-    fun refreshToken(@Header("refresh_token") refresh_token: String): Observable<Token>
+    fun refreshToken(@Header("refresh_token") refresh_token: String): Call<Token>
 }
