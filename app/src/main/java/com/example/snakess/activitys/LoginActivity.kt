@@ -32,7 +32,7 @@ class LoginActivity : ABaseActivity(),ILoginRouter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        //showLoading()
+
         if (savedInstanceState != null)
             return
         if(intent.getBooleanExtra(ARG_DROP_CREDENTIALS,false)) {
@@ -40,13 +40,6 @@ class LoginActivity : ABaseActivity(),ILoginRouter {
             return
         }
         showLoading()
-    }
-
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
     }
 
 

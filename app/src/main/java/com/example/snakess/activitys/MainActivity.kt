@@ -26,10 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null)
             return // Не будем пересоздавать фрагмент, пусть берется старый из стека
-
-
-
            LoginActivity.show()
+
         }
     }
 

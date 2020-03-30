@@ -1,4 +1,4 @@
-package com.example.snakess.presention.menu
+package com.example.snakess.presention.credentials.menu
 
 interface IMenuRouter {
     fun showLoading()

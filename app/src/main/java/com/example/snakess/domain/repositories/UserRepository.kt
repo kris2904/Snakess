@@ -39,24 +39,6 @@ class UserRepository {
 
     fun getUser() = storage.user
 
-    /* fun refreshToken(observer: SubRX<Token>,access:String,refresh:String) {
-         rest.refreshToken(access,refresh)
-             .doOnNext()
-             .standardSubscribeIO()
-     }*/
-    /*fun refreshToken(token: Token): Token {
-       TODO()
-    }*/
-  /* fun refreshToken(observer: SubRX<Token>, refresh: String)  {
-        rest.refreshToken(refresh)
-            .doOnNext {
-                storage.saveTokens(it)
-            }
-            .map {
-                return@map Token(it.access,it.refresh)
-            }
-            .standardSubscribeIO(observer)
-    }*/
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
 
         val response = rest.refreshToken(token.refresh).execute()

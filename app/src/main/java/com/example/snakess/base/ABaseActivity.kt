@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.example.snakess.R
 
 
-@SuppressLint("Registered")
 open class ABaseActivity: AppCompatActivity() {
 
     fun replace(fragment:Fragment,backStack:String?=null, tag:String?=null){
