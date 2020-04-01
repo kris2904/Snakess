@@ -2,8 +2,7 @@ package com.example.snakess.presention.credentials.authorization
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.activitys.LoginActivity.Companion.show
-import com.example.snakess.activitys.MainActivity
+import com.example.snakess.activitys.MenuActivity
 import com.example.snakess.base.SubRX
 import com.example.snakess.domain.repositories.UserRepository
 import javax.inject.Inject
@@ -23,24 +22,9 @@ class AuthPresentor:MvpPresenter<IAurhView> {
                 viewState.onError(e.localizedMessage)
                 return@SubRX
             }
-            MainActivity.show()
-
+            MenuActivity.show()
         },login,psss)
-        if(!checkAuth()) viewState.unlock()
 
     }
-     fun checkAuth():Boolean {
-        val userFromBD = userRepository.fetchUser()
-        if (userFromBD != null) {
-            return true
-            //viewState.showMenuFragment()
-        } else {
-            return false
-            //viewState.showAuthActivity()
-        }
-    }
 
- fun showError(){
-
- }
 }

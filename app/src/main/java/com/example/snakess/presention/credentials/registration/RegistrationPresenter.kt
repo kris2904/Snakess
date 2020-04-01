@@ -2,7 +2,7 @@ package com.example.snakess.presention.credentials.registration
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.activitys.MainActivity
+import com.example.snakess.activitys.MenuActivity
 import com.example.snakess.base.SubRX
 import com.example.snakess.domain.repositories.UserRepository
 import javax.inject.Inject
@@ -10,16 +10,13 @@ import javax.inject.Inject
 @InjectViewState
 class RegistrationPresenter: MvpPresenter<IRegistrationView> {
 
-@Inject
-lateinit var userRepository : UserRepository
+    @Inject
+    lateinit var userRepository: UserRepository
+
     @Inject
     constructor()
 
-/*    fun fetchUser() {
-        viewState.loading()
-
-    }*/
-    fun registration(login:String,psss:String){
+    fun registration(login: String, psss: String) {
         viewState.lock()
         userRepository.registration(SubRX { _, e ->
             viewState.unlock()
@@ -29,14 +26,9 @@ lateinit var userRepository : UserRepository
                 viewState.onError(e.localizedMessage)
                 return@SubRX
             }
+            MenuActivity.show()
 
-            MainActivity.show()
-
-        },login,psss)
+        }, login, psss)
 
     }
-
-
-
-
 }

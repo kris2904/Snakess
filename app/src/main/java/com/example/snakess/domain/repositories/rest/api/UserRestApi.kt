@@ -2,9 +2,9 @@ package com.example.snakess.domain.repositories.rest.api
 
 import com.example.snakess.base.ABaseRestApi
 import com.example.snakess.base.IRestClient
-import com.example.snakess.domain.di.models.User
 import com.example.snakess.domain.di.moduls.NetModuls
 import com.example.snakess.domain.repositories.rest.service.IUserRestApiService
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.User
 import javax.inject.Inject
 import javax.inject.Named
 

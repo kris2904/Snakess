@@ -27,42 +27,15 @@ class LoadingFragment : ABaseFragment(), ILoaderView {
     }
 
 
-    override fun getViewId()=R.layout.fragment_loading
-    override fun onLoadingComplete() {
-        activity?.let{
-            if(it is ILoginRouter)
+    override fun getViewId() = R.layout.fragment_loading
+
+
+    //-------------------------------Routing--------------------------------------------------------
+
+    override fun showAuth() {
+        activity?.let {
+            if (it is ILoginRouter)
                 it.showAuth()
         }
     }
-   /* override fun chackAuth():Boolean {
-        val userFromBD = userRepository.fetchUser()
-        if (userFromBD != null) {
-            return true
-            //viewState.showMenuFragment()
-        } else {
-            return false
-            //viewState.showAuthActivity()
-        }
-    }*/
-
-
-    //-------------------------------MVP--------------------------------------------------------
-    /*override fun showLoading() {
-        progress.visibility = View.VISIBLE
-    }
-
-    override fun hideLoading() {
-        progress.visibility = View.GONE
-    }*/
-    //-------------------------------Routing--------------------------------------------------------
-    override fun showMenuFragment() {
-        //(activity as IMainRouter).showMenuFragment()
-    }
-
-    override fun showAuthActivity() {
-        //(activity as IMainRouter).showAuthActivity()
-    }
-
-
-
 }

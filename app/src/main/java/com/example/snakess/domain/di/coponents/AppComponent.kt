@@ -1,6 +1,7 @@
 package com.example.snakess.domain.di.coponents
 
 import com.example.snakess.domain.di.moduls.NetModuls
+import com.example.snakess.domain.menu.MenuFragment
 import com.example.snakess.presention.credentials.authorization.AuthorizationFragment
 import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.registration.RegistrationFragment
@@ -14,4 +15,5 @@ interface AppComponent {
     fun inject(target: RegistrationFragment)
     fun inject(target: AuthorizationFragment)
     fun inject(target: LoadingFragment)
+    fun inject(target: MenuFragment)
 }

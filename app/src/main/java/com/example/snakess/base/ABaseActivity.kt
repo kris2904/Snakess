@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.snakess.R
 
 
-open class ABaseActivity: AppCompatActivity() {
+abstract class ABaseActivity: AppCompatActivity() {
 
     fun replace(fragment:Fragment,backStack:String?=null, tag:String?=null){
         supportFragmentManager.beginTransaction()

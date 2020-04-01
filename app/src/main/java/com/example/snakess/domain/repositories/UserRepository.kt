@@ -3,11 +3,10 @@ package com.example.snakess.domain.repositories
 import android.os.SystemClock
 import com.example.snakess.base.SubRX
 import com.example.snakess.base.standardSubscribeIO
-import com.example.snakess.domain.di.models.Token
-import com.example.snakess.domain.di.models.User
 import com.example.snakess.domain.repositories.local.UserStorage
 import com.example.snakess.domain.repositories.rest.api.UserRestApi
-import retrofit2.Call
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.Token
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.User
 import java.net.HttpURLConnection
 import javax.inject.Inject
 
@@ -37,7 +36,7 @@ class UserRepository {
             .standardSubscribeIO(observer)
     }
 
-    fun getUser() = storage.user
+    fun getUser() = storage.getUser()
 
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
 
@@ -53,9 +52,6 @@ class UserRepository {
         }
 
         return null
-    }
-    fun fetchUser() {
-
     }
 
 }

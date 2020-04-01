@@ -2,7 +2,6 @@ package com.example.snakess.presention.credentials.registration
 
 import com.arellomobile.mvp.MvpView
 import com.example.snakess.base.IBaseView
-import com.example.snakess.domain.di.models.User
 
 
 interface IRegistrationView: IBaseView {

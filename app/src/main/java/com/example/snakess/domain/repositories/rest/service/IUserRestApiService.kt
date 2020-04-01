@@ -1,7 +1,7 @@
 package com.example.snakess.domain.repositories.rest.service
 
-import com.example.snakess.domain.di.models.Token
-import com.example.snakess.domain.di.models.User
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.Token
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.User
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*

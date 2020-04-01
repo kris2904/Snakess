@@ -3,19 +3,13 @@ package com.example.snakess.presention.credentials.authorization
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
-import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.R
-import com.example.snakess.activitys.MainActivity
 import com.example.snakess.base.ABaseFragment
 import com.example.snakess.domain.di.coponents.DaggerAppComponent
-import com.example.snakess.domain.di.models.User
 import com.example.snakess.presention.ILoginRouter
 import kotlinx.android.synthetic.main.fragment_authorization.*
 import javax.inject.Inject
@@ -83,14 +77,4 @@ class AuthorizationFragment : ABaseFragment(),IAurhView {
     override fun showError(text: String) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show()
     }
-
-
-    /*override fun validation(login: String, pass: String) {
-TODO("Not yet implemented")
-}
-
-override fun loading() {
-TODO("Not yet implemented")
-}*/
-
 }

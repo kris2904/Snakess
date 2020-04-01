@@ -1,18 +1,16 @@
 package com.example.snakess.domain.repositories.rest
 
-import android.database.Observable
+
 import android.util.Log
 import com.example.snakess.activitys.LoginActivity
-import com.example.snakess.base.SubRX
-import com.example.snakess.domain.di.models.Token
 import com.example.snakess.domain.repositories.UserRepository
 import com.example.snakess.exceptions.AuthException
+import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.Token
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 import java.lang.IllegalArgumentException
 import java.net.HttpURLConnection
-import java.util.*
 import java.util.concurrent.locks.ReentrantLock
 import javax.inject.Inject
 

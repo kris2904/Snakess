@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType
 * Базовый класс RestApi который позволит не писать явный код на создание сервиса выполнения запросов
 */
 abstract class ABaseRestApi<S>:IRestApi {
-    val client:IRestClient
+    private val client:IRestClient
     val service:S
     constructor(client:IRestClient){
         val type =javaClass.genericSuperclass as ParameterizedType

@@ -5,16 +5,13 @@ import android.os.Bundle
 import com.example.snakess.App
 import com.example.snakess.R
 import com.example.snakess.base.ABaseActivity
+import com.example.snakess.domain.repositories.local.UserStorage
 import com.example.snakess.presention.ILoginRouter
 import com.example.snakess.presention.credentials.authorization.AuthorizationFragment
 import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.registration.RegistrationFragment
 
 class LoginActivity : ABaseActivity(),ILoginRouter {
-
-     var authFragment: AuthorizationFragment = AuthorizationFragment() //фрагмент с формой авторизации
-    var regFragment:RegistrationFragment= RegistrationFragment()    //фрагмент с формой регистрации
-
     companion object {
 
         private const val ARG_DROP_CREDENTIALS = "ARG_DROP_CREDENTIALS"
@@ -36,6 +33,7 @@ class LoginActivity : ABaseActivity(),ILoginRouter {
         if (savedInstanceState != null)
             return
         if(intent.getBooleanExtra(ARG_DROP_CREDENTIALS,false)) {
+            UserStorage().dropCredentials()
             showAuth()
             return
         }
@@ -55,9 +53,7 @@ class LoginActivity : ABaseActivity(),ILoginRouter {
        replace(AuthorizationFragment())
     }
 
-    override fun showMainActivity() {
-        TODO("Not yet implemented")
-    }
+
 
 
 }
