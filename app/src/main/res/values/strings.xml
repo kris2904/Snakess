@@ -13,4 +13,9 @@
     <string name="error_login_passwd_undefined">поля логина и пароля не заполнены</string>
     <string name="error_login_undefined">поле логин не заполненно</string>
     <string name="error_pass_undefined">поле пароль не заполненно</string>
+    <string name="kick">kick</string>
+    <string name="table_lobby">Подключение игроков</string>
+    <string name="kol_player">Количество игроков:</string>
+    <string name="new_game">Создание игры</string>
+    <string name="txt_numer_player">Назовите игру:</string>
 </resources>

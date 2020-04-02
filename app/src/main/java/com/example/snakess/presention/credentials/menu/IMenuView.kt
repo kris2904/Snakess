@@ -1,6 +1,5 @@
-package com.example.snakess.domain.menu
+package com.example.snakess.presention.credentials.menu
 
-import com.arellomobile.mvp.MvpView
 import com.example.snakess.base.IBaseView
 
 interface IMenuView : IBaseView {

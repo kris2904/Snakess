@@ -1,8 +1,7 @@
-package com.example.snakess.domain.menu
+package com.example.snakess.presention.credentials.menu
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakess.domain.repositories.UserRepository
 import javax.inject.Inject
 
 @InjectViewState

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/colorGray"
+        android:weightSum="2"
+        android:layout_marginBottom="10dp">
+
+        <View
+            android:id="@+id/friend_img_online"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_record_user" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.8"
+            android:background="@color/colorGray"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_login_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="имя игрока"
+                android:textSize="@dimen/online_size"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/kik_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:visibility="invisible"
+            android:text="@string/kick"
+             />
+    </LinearLayout>

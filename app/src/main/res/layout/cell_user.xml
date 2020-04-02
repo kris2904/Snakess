@@ -6,7 +6,8 @@
     android:layout_centerInParent="true"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
-    android:weightSum="2">
+    android:weightSum="2"
+    android:layout_marginBottom="10dp">
 
     <View
         android:id="@+id/friend_img_online"
@@ -23,20 +24,20 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1.8"
         android:background="@color/colorGray"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
 
         <TextView
-            android:id="@+id/friend_txt_username"
+            android:id="@+id/txt_login_player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="имя игрока"
-            android:textSize="16dp"
+            android:textSize="@dimen/online_size"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/friend_txt_city"
+            android:id="@+id/txt_number_of_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"

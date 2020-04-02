@@ -1,16 +1,13 @@
-package com.example.snakess.domain.menu
+package com.example.snakess.presention.credentials.menu
 
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.R
+import com.example.snakess.activitys.CreategameActivity
 import com.example.snakess.activitys.LoginActivity
 import com.example.snakess.base.ABaseFragment
 import com.example.snakess.domain.di.coponents.DaggerAppComponent
@@ -40,6 +37,12 @@ class MenuFragment :  ABaseFragment(),IMenuView {
 
         bottonGame_off.setOnClickListener(){
             LoginActivity.show()
+        }
+        bottonStart_of_my_Game.setOnClickListener(){//моя игра
+            CreategameActivity.show()
+        }
+        bottonStart_your_Game.setOnClickListener(){//чужая
+            CreategameActivity.show()
         }
     }
 

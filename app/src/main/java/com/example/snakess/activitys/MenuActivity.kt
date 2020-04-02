@@ -3,14 +3,14 @@ package com.example.snakess.activitys
 import android.content.Intent
 import android.os.Bundle
 import com.example.snakess.App
-import com.example.snakess.domain.menu.MenuFragment
+import com.example.snakess.presention.credentials.menu.MenuFragment
 import com.example.snakess.R
 import com.example.snakess.base.ABaseActivity
 import com.example.snakess.presention.credentials.loading.LoadingFragment
-import com.example.snakess.presention.credentials.menu.IMenuRouter
+import com.example.snakess.presention.IMenuRouter
 
 
-class MenuActivity: ABaseActivity(),IMenuRouter {
+class MenuActivity: ABaseActivity(), IMenuRouter {
     companion object {
         private const val ARG_DROP_MENU = "ARG_DROP_MENU"
         fun show() {

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="online_size">16dp</dimen>
+    <dimen name="size_txt_kol_player">18dp</dimen>
+    <dimen name="visota_txt_kol_player">300dp</dimen>
 </resources>
