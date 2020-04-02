@@ -18,4 +18,7 @@
     <string name="kol_player">Количество игроков:</string>
     <string name="new_game">Создание игры</string>
     <string name="txt_numer_player">Назовите игру:</string>
+    <string name="error_kol_bolshe_players">Нельзя,чтобы на поле было больше восьми игроков!</string>
+    <string name="error_kol_menshe_players">Нельзя, чтобы количество игроков былор меньше 2!</string>
+    <string name="error_nameGame">Назовите игру</string>
 </resources>

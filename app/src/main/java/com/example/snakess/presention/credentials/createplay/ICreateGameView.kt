@@ -5,4 +5,5 @@ import com.example.snakess.base.IBaseView
 
 interface ICreateGameView:IBaseView {
     fun showError(text:String)
+    fun showLobby()
 }

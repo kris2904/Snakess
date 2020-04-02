@@ -71,7 +71,7 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/txt_add_player"
+                    android:id="@+id/txt_remuve_player"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_more_or_less_player"
@@ -89,7 +89,7 @@
                     android:textStyle="italic" />
 
                 <Button
-                    android:id="@+id/txt_remuve_player"
+                    android:id="@+id/txt_add_player"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
