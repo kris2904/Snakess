@@ -13,9 +13,6 @@ class CreateGamePresenter: MvpPresenter<ICreateGameView> {
     constructor()
     fun creategame(nameGame:String,kol_players:Int){
         gameRepository.creategamr({
-            if(nameGame.isEmpty()) {
-                viewState.showError(text = "Назовите игру")
-            }
             viewState.showLobby()
         },nameGame,kol_players)
     }

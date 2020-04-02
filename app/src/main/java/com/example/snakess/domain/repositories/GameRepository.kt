@@ -8,4 +8,5 @@ class GameRepository {
     fun creategamr(subscriber: (String) -> Unit, nameGame: String, kol_players: Int) {
         subscriber.invoke("$nameGame : $kol_players")
     }
+
 }
