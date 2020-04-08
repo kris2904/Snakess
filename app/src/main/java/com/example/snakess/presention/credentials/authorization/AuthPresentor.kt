@@ -9,10 +9,12 @@ import javax.inject.Inject
 
 @InjectViewState
 class AuthPresentor:MvpPresenter<IAurhView> {
+    //@Inject
+    private var userRepository :UserRepository
     @Inject
-    lateinit var userRepository :UserRepository
-    @Inject
-    constructor()
+    constructor(userRepository :UserRepository){
+        this.userRepository=userRepository
+    }
 
     fun authtorization(login: String, psss:String){
         viewState.lock()

@@ -10,11 +10,13 @@ import javax.inject.Inject
 @InjectViewState
 class RegistrationPresenter: MvpPresenter<IRegistrationView> {
 
-    @Inject
-    lateinit var userRepository: UserRepository
+   // @Inject
+   private var userRepository: UserRepository
 
     @Inject
-    constructor()
+    constructor(userRepository: UserRepository){
+        this.userRepository=userRepository
+    }
 
     fun registration(login: String, psss: String) {
         viewState.lock()

@@ -7,10 +7,12 @@ import javax.inject.Inject
 
 @InjectViewState
 class CreateGamePresenter: MvpPresenter<ICreateGameView> {
+    //@Inject
+    private var gameRepository :GameRepository
     @Inject
-    lateinit var gameRepository :GameRepository
-    @Inject
-    constructor()
+    constructor(gameRepository :GameRepository){
+        this.gameRepository=gameRepository
+    }
     fun creategame(nameGame:String,kol_players:Int){
         gameRepository.creategamr({
             viewState.showLobby()

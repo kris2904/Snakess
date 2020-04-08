@@ -1,0 +1,13 @@
+классы
+1.ABaseListFragment
+2.ABaseAdapter
+3.ABaseView
+4.DialogFragment(PFragment)
+5.Teyp1View
+6.Teype2View
+7.интерфейс ITypeView
+8.DialogPresenter
+9.IDialogView
+10.DialogRepositoriy
+задание: в классе 2, в методе addBegin можно вставить вместо одного эл. список (item:List<D>)
+формулировка:добавить все списки и вызвать нужную ф-нцию уведомления, написать некоторую логику с этим связанную, чтобы все верно работало.

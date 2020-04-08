@@ -3,6 +3,7 @@ package com.example.snakess.domain.repositories
 import android.os.SystemClock
 import com.example.snakess.base.SubRX
 import com.example.snakess.base.standardSubscribeIO
+import com.example.snakess.domain.repositories.implementation.IUserRepository
 import com.example.snakess.domain.repositories.local.UserStorage
 import com.example.snakess.domain.repositories.rest.api.UserRestApi
 import com.soft.eac.thedepartmentgl.domain.repositories.models.rest.Token
@@ -11,7 +12,7 @@ import java.net.HttpURLConnection
 import javax.inject.Inject
 
 
-class UserRepository {
+class UserRepository: IUserRepository {
     private val storage: UserStorage
     private val rest: UserRestApi
 
@@ -22,23 +23,23 @@ class UserRepository {
 
     }
 
-    fun registration(observer: SubRX<User>, login: String, pass: String) {
+    override fun registration(observer: SubRX<User>, login: String, pass: String) {
 
         rest.registration(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
     }
 
-    fun login(observer: SubRX<User>, login: String, pass: String) {
+    override fun login(observer: SubRX<User>, login: String, pass: String) {
 
         rest.login(login, pass)
             .doOnNext { storage.save(it) }
             .standardSubscribeIO(observer)
     }
 
-    fun getUser() = storage.getUser()
+    override fun getUser() = storage.getUser()
 
-    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
+    override fun refreshToken(token: Token, onRetry: (Int) -> Boolean): Token? {
 
         val response = rest.refreshToken(token.refresh).execute()
         response.body()?.let {

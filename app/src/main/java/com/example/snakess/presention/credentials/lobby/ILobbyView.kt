@@ -7,5 +7,5 @@ import com.example.snakess.domain.repositories.models.rest.GameResult
 interface ILobbyView:MvpView {
     //fun setupPlayersList(playersList:ArrayList<User>)
     fun setupAdapter()
-    fun presentPlayers(date:ArrayList<GameResult>)
+    fun bindPlayers(date:List<GameResult>)
 }
