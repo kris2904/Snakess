@@ -7,7 +7,7 @@ import com.example.snakess.presention.credentials.menu.MenuFragment
 import com.example.snakess.R
 import com.example.snakess.base.ABaseActivity
 import com.example.snakess.presention.credentials.loading.LoadingFragment
-import com.example.snakess.presention.IMenuRouter
+import com.example.snakess.presention.routers.IMenuRouter
 
 
 class MenuActivity: ABaseActivity(), IMenuRouter {

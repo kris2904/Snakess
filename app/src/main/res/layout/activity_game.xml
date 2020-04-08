@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".activitys.GameActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Жизни"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/counter_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:text="1/3"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/game_horisontal_indentation"
+        android:layout_marginLeft="@dimen/game_vertical_indentation"
+        android:layout_marginRight="@dimen/game_vertical_indentation"
+        android:layout_gravity="center">
+       <com.example.snakess.presention.game.GameView
+            android:id="@+id/playing_field"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.example.snakess.presention.game.GameView>
+
+
+    </FrameLayout>
+
+        <Button
+            android:id="@+id/snake_left"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom|left"
+            android:background="@drawable/button_more_or_less_player"
+            android:layout_marginBottom="15dp"
+            android:rotation="-90" />
+        <Button
+            android:id="@+id/snake_right"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/button_more_or_less_player"
+            android:layout_marginBottom="15dp"
+            android:rotation="90" />
+    </FrameLayout>
+
+
+</LinearLayout>

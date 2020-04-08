@@ -8,4 +8,5 @@ interface ILobbyView:MvpView {
     //fun setupPlayersList(playersList:ArrayList<User>)
     fun setupAdapter()
     fun bindPlayers(date:List<GameResult>)
+    fun showGameActivity()
 }

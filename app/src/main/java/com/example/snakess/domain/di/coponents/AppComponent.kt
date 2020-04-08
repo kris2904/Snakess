@@ -1,5 +1,6 @@
 package com.example.snakess.domain.di.coponents
 
+import com.example.snakess.activitys.GameActivity
 import com.example.snakess.domain.di.moduls.NetModuls
 import com.example.snakess.presention.credentials.menu.MenuFragment
 import com.example.snakess.presention.credentials.authorization.AuthorizationFragment
@@ -14,10 +15,13 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(NetModuls::class))
 interface AppComponent {
 
+    //Fragments
     fun inject(target: RegistrationFragment)
     fun inject(target: AuthorizationFragment)
     fun inject(target: LoadingFragment)
     fun inject(target: MenuFragment)
     fun inject(target: CreateGameFragment)
     fun inject(target:LobbyFragment)
+    //Activitys
+    fun inject(target:GameActivity)
 }

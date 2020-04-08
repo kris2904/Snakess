@@ -1,7 +1,9 @@
 package com.example.snakess.presention.credentials.lobby
 
+import android.os.Handler
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.example.snakess.activitys.GameActivity
 import com.example.snakess.domain.repositories.GameRepository
 import com.example.snakess.domain.repositories.models.rest.GameResult
 import javax.inject.Inject
@@ -20,5 +22,13 @@ class LobbyPresenter:MvpPresenter<ILobbyView> {
         repositoryGame.fetchPlayers({
             viewState.bindPlayers(it)
         })
+        loadStaticResources()
+    }
+    fun loadStaticResources() {
+        Handler().postDelayed({
+            GameActivity.show()
+            viewState.showGameActivity()
+
+        }, 2000)
     }
 }

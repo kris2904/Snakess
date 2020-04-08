@@ -6,12 +6,13 @@ import com.example.snakess.App
 import com.example.snakess.R
 import com.example.snakess.base.ABaseActivity
 import com.example.snakess.domain.repositories.local.UserStorage
-import com.example.snakess.presention.ILoginRouter
+import com.example.snakess.presention.routers.ILoginRouter
 import com.example.snakess.presention.credentials.authorization.AuthorizationFragment
 import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.registration.RegistrationFragment
 
-class LoginActivity : ABaseActivity(),ILoginRouter {
+class LoginActivity : ABaseActivity(),
+    ILoginRouter {
     companion object {
 
         private const val ARG_DROP_CREDENTIALS = "ARG_DROP_CREDENTIALS"

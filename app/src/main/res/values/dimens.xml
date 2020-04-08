@@ -3,4 +3,6 @@
     <dimen name="online_size">16dp</dimen>
     <dimen name="size_txt_kol_player">18dp</dimen>
     <dimen name="visota_txt_kol_player">300dp</dimen>
+    <dimen name="game_vertical_indentation">100dp</dimen>
+    <dimen name="game_horisontal_indentation">380dp</dimen>
 </resources>

@@ -1,22 +1,16 @@
 package com.example.snakess.activitys
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import com.example.snakess.App
 import com.example.snakess.R
 import com.example.snakess.base.ABaseActivity
-import com.example.snakess.domain.repositories.local.UserStorage
-import com.example.snakess.presention.ICreategameRouter
-import com.example.snakess.presention.ILoginRouter
+import com.example.snakess.presention.routers.ICreategameRouter
 import com.example.snakess.presention.credentials.createplay.CreateGameFragment
-import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.lobby.LobbyFragment
-import com.example.snakess.presention.credentials.menu.MenuFragment
-import kotlinx.android.synthetic.main.fragment_menu.*
 
-class CreategameActivity : ABaseActivity(), ICreategameRouter {
+class CreategameActivity : ABaseActivity(),
+    ICreategameRouter {
     companion object {
         private const val ARG_DROP_CREATE_GAME = "ARG_DROP_CREATE_GAME"
 

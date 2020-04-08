@@ -8,7 +8,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.R
 import com.example.snakess.base.ABaseFragment
 import com.example.snakess.domain.di.coponents.DaggerAppComponent
-import com.example.snakess.presention.ILoginRouter
+import com.example.snakess.presention.routers.ILoginRouter
 import javax.inject.Inject
 
 /**

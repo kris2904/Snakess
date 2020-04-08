@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.R
+import com.example.snakess.activitys.GameActivity
 import com.example.snakess.adapters.PlayersAdapter
 
 import com.example.snakess.base.ABaseListFragment
@@ -19,32 +20,6 @@ import javax.inject.Inject
  */
 class LobbyFragment: ABaseListFragment<GameResult, RecyclerView.ViewHolder>(), ILobbyView {
 
-    /*class Adapter : ABaseAdapter<GameResult, RecyclerView.ViewHolder>() {
-
-        companion object {
-            const val TYPE_LOBBY = 0
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
-            val view: View = TypeLobbyView(parent.context)
-            view.layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            return object : RecyclerView.ViewHolder(view) {}
-        }
-
-        override fun getItemViewType(position: Int): Int {
-            return TYPE_LOBBY
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            val view = holder.itemView
-            if (view is ITypeLobbyView)
-                view.bind(data[position])
-        }
-    }*/
     private var adapterPlayer=
         PlayersAdapter()
     override fun provideAdapter()=adapterPlayer
@@ -62,13 +37,16 @@ class LobbyFragment: ABaseListFragment<GameResult, RecyclerView.ViewHolder>(), I
     override fun getListId()= R.id.recycler_user_lobby
     override fun getViewId()=R.layout.fragment_lobby
 
-
     override fun setupAdapter() {
         TODO("Not yet implemented")
     }
 
     override fun bindPlayers(data: List<GameResult>) {
        adapterPlayer.data=data.toMutableList()
+    }
+
+    override fun showGameActivity() {
+       GameActivity.show()
     }
     /*private var mAdapter=PlayersAdapter()
 
