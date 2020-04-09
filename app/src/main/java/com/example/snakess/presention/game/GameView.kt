@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import com.example.snakess.presention.game.ui.PlayingFeldUI
 
 class GameView @JvmOverloads constructor(
   context:Context,attrs:AttributeSet?=null,defStyleAttr:Int=0
@@ -15,6 +16,8 @@ class GameView @JvmOverloads constructor(
             field=value
             value?.addCallback(this)
         }
+
+    private val playingFeldUI=PlayingFeldUI()
     init{
         sfHolder=holder
     }
@@ -45,7 +48,16 @@ class GameView @JvmOverloads constructor(
                 holder.unlockCanvasAndPost(it)}
         }
     }
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        //postOnAnimation( {render()} )
+        postDelayed({ render() }, 2000)
+    }
+
     private  fun render(canvas:Canvas)
     {
+        playingFeldUI.width=width
+        playingFeldUI.height=width
+        playingFeldUI.render(canvas)
     }
 }
