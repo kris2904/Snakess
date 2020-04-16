@@ -1,10 +1,7 @@
 package com.example.snakess.activitys
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakess.App
@@ -35,13 +32,12 @@ class GameActivity : ABaseActivity(),IGameView,IGameRouter {
     @ProvidePresenter
     fun providePresenter()=presenterGame
 
-     fun inject() {
+    fun inject() {
         DaggerAppComponent.create().inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         if (savedInstanceState != null)
             return
         if (intent.getBooleanExtra(ARG_DROP_GAME, false)) {

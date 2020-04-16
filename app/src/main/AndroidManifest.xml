@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true">
 
         <activity android:name=".activitys.GameActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="portrait"></activity>
 
         <activity android:name=".activitys.CreategameActivity" />
         <activity android:name=".activitys.RecordActivity" />

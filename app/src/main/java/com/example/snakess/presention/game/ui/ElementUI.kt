@@ -4,10 +4,9 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import com.example.snakess.presention.game.ui.snakeGameObject.Apple
-import com.example.snakess.presention.game.ui.snakeGameObject.GameObject
 
 open class ElementUI: IElementUI {
+
 
 
     companion object {
@@ -37,11 +36,19 @@ open class ElementUI: IElementUI {
         }
     }
 
+ /*   override fun move() {
+       *//* when (state) {
+            STATE_APPLE -> renderApple(canvas)
+            STATE_HAID -> renderHaid(canvas)
+        }*//*
+    }*/
+
     override fun render_snake(canvas: Canvas) {
         TODO("Not yet implemented")
     }
 
     private fun renderApple(canvas: Canvas){
+
     }
     private fun renderHaid(canvas: Canvas){
         val x = x.toFloat()
@@ -53,5 +60,6 @@ open class ElementUI: IElementUI {
         val cy=y+h*0.5f
         canvas.drawCircle(cx, cy, hw,paintHaid)
     }
+
 
 }
