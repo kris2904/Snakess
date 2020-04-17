@@ -7,11 +7,12 @@ import android.graphics.Rect
 import android.os.Handler
 import android.util.Log
 import com.example.snakess.presention.game.GameView
+import com.example.snakess.presention.game.ui.snakeGameObject.ABaseGame
 import com.example.snakess.presention.game.ui.snakeGameObject.Snake
 import kotlin.random.Random
 
 //
-class PlayingFeldUI : IElementUI {
+class PlayingFeldUI : IElementUI, ABaseGame() {
     val TAG = "PlayingFeldUI"
     private val paintHaid = Paint().apply {
         color = Color.WHITE
@@ -29,8 +30,8 @@ class PlayingFeldUI : IElementUI {
     //private val runSnake = SnakeRun()
     private val bgPaint = Paint().apply { color = Color.GREEN }
 
-    var width: Int = 0
-    var height: Int = 0
+    override var width: Int = 0
+    override var height: Int = 0
 
 
     init {
@@ -91,7 +92,7 @@ class PlayingFeldUI : IElementUI {
                 paintHaid)
         }
     }
-    fun getStartX():Int{
+/*    fun getStartX():Int{
         return (width - getCountByWidth() * getSize()) / 2
     }
     fun getStartY():Int{
@@ -104,6 +105,6 @@ class PlayingFeldUI : IElementUI {
     }
     private fun getCountByHeight(): Int {
         return height / getSize()
-    }
+    }*/
 
     }
