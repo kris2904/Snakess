@@ -76,12 +76,6 @@ class GameView @JvmOverloads constructor(
 
     }
 
-    /*override fun onDraw(canvas: Canvas?) {
-           super.onDraw(canvas)
-           render()
-           mHandler.postDelayed(mSnakeRunnable,500L)
-       }*/
-
     private fun render(canvas: Canvas) {
         playingFeldUI.width = width
         playingFeldUI.height = height
