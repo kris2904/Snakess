@@ -1,9 +1,11 @@
 package com.example.snakess.presention.game.ui.snakeGameObject
 
 import com.example.snakess.presention.game.GameView
+import com.example.snakess.presention.game.ui.PlayingFeldUI
 
 abstract class ABaseGame {
-     open var width: Int=0
+
+     open var width:Int=0
      open var height:Int=0
 
     fun getStartX():Int{

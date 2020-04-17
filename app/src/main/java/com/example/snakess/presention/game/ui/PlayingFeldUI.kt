@@ -9,15 +9,21 @@ import android.util.Log
 import com.example.snakess.presention.game.GameView
 import com.example.snakess.presention.game.ui.snakeGameObject.ABaseGame
 import com.example.snakess.presention.game.ui.snakeGameObject.Snake
+import com.example.snakess.presention.game.ui.snakeGameObject.SnakePieces
 import kotlin.random.Random
 
 //
 class PlayingFeldUI : IElementUI, ABaseGame() {
     val TAG = "PlayingFeldUI"
-    private val paintHaid = Paint().apply {
+    private val paintBody = Paint().apply {
         color = Color.WHITE
     }
-    private var mSnakePaths=ArrayList<Snake>()
+    private val paintHaid = Paint().apply {
+        color = Color.GREEN
+    }
+    private var mGameView=GameView
+    var mSnakePaths=ArrayList<SnakePieces>()
+  //  private  var snake=Snake()
     private var countPaths=3
    // private var apple= Apple()
     private val mHandler = Handler()
@@ -25,14 +31,11 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
    // private val mSnakeRunnable=SnakeRunnable()
     //private lateinit var gameView:IElementUI
 
-
-    private val takes = mutableListOf<ElementUI>()
     //private val runSnake = SnakeRun()
-    private val bgPaint = Paint().apply { color = Color.GREEN }
+    private val bgPaint = Paint().apply { color = Color.GRAY }
 
     override var width: Int = 0
     override var height: Int = 0
-
 
     init {
         var random = Random(System.currentTimeMillis())
@@ -45,8 +48,6 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     }
 
     override fun render_snake(canvas: Canvas) {
-
-
     }
 
     fun move() {
@@ -61,6 +62,11 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
                     }
                 }
             }
+            GameView.LEFT_DIRECTION -> {
+                mSnakePaths[i].x -= getSize()
+                if (mSnakePaths[i].x < 0) {
+                    mSnakePaths[i].x = width - getStartX() - getSize()
+                }
             if (i > 0 && mSnakePaths[i].Direction != previousDirection) {
                 val directionSwap = previousDirection
                 previousDirection = mSnakePaths[i].Direction
@@ -75,7 +81,7 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     fun addElementList(){
         if(mSnakePaths.isEmpty()) {
             for (i in 0 until countPaths) {
-                mSnakePaths.add(Snake(getStartX() + (countPaths - 1 - i) * getSize(), getStartY()))
+                mSnakePaths.add(SnakePieces(getStartX() + (countPaths - 1 - i) * getSize(), getStartY()))
              if (i == 0) {
                     mSnakePaths.last().isStart = true
                 }
@@ -83,28 +89,24 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
         }
     }
     fun drawSnake(canvas: Canvas){
-        for(i in 0 until  mSnakePaths.size){
-            // if(mSnakePaths[i].isStart)
+
+      for(i in 0 until  mSnakePaths.size){
+          if(mSnakePaths[i].isStart==true)
             canvas.drawCircle(
                 (mSnakePaths[i].x.toFloat())+(getCountByWidth().toFloat()*0.5f),
                 (mSnakePaths[i].y.toFloat())+(getCountByHeight().toFloat()*0.5f),
                 getCountByWidth().toFloat()*0.5f,
                 paintHaid)
+         else
+          canvas.drawCircle(
+              (mSnakePaths[i].x.toFloat())+(getCountByWidth().toFloat()*0.5f),
+              (mSnakePaths[i].y.toFloat())+(getCountByHeight().toFloat()*0.5f),
+              getCountByWidth().toFloat()*0.5f,
+              paintBody)
         }
-    }
-/*    fun getStartX():Int{
-        return (width - getCountByWidth() * getSize()) / 2
-    }
-    fun getStartY():Int{
-        return (height -getCountByHeight() * getSize()) / 2
-    }
-    fun getSize()=40
+       //snake.drawSnake(canvas)
 
-    private fun getCountByWidth(): Int {
-        return width / getSize()
     }
-    private fun getCountByHeight(): Int {
-        return height / getSize()
-    }*/
+
 
     }

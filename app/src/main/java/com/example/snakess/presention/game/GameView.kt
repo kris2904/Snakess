@@ -11,7 +11,7 @@ import com.example.snakess.presention.game.ui.PlayingFeldUI
 
 class GameView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : SurfaceView(context, attrs, defStyleAttr), SurfaceHolder.Callback {
+) : SurfaceView(context, attrs, defStyleAttr), SurfaceHolder.Callback{
     val TAG = "GameView"
 
     private val mHandler = Handler()
@@ -95,5 +95,19 @@ class GameView @JvmOverloads constructor(
             render()
             moveSnake()
         }
+    }
+    fun getStartX():Int{
+        return (width - getCountByWidth() * getSize()) / 2
+    }
+    fun getStartY():Int{
+        return (height -getCountByHeight() * getSize()) / 2
+    }
+    fun getSize()=40
+
+    private fun getCountByWidth(): Int {
+        return width / getSize()
+    }
+    private fun getCountByHeight(): Int {
+        return height / getSize()
     }
 }
