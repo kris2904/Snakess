@@ -8,6 +8,7 @@ import com.example.snakess.presention.credentials.createplay.CreateGameFragment
 import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.lobby.LobbyFragment
 import com.example.snakess.presention.credentials.registration.RegistrationFragment
+import com.example.snakess.presention.game.GameFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -23,5 +24,5 @@ interface AppComponent {
     fun inject(target: CreateGameFragment)
     fun inject(target:LobbyFragment)
     //Activitys
-    fun inject(target:GameActivity)
+    fun inject(target:GameFragment)
 }

@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import com.example.snakess.activitys.GameActivity
 import com.example.snakess.presention.game.ui.PlayingFeldUI
 
 class GameView @JvmOverloads constructor(
@@ -82,6 +83,7 @@ class GameView @JvmOverloads constructor(
         playingFeldUI.render(canvas)
 
         mHandler.postDelayed(mSnakeRunnable, 500L)
+
     }
 
    fun moveSnake() {
@@ -96,18 +98,10 @@ class GameView @JvmOverloads constructor(
             moveSnake()
         }
     }
-    fun getStartX():Int{
-        return (width - getCountByWidth() * getSize()) / 2
-    }
-    fun getStartY():Int{
-        return (height -getCountByHeight() * getSize()) / 2
-    }
-    fun getSize()=40
-
-    private fun getCountByWidth(): Int {
-        return width / getSize()
-    }
-    private fun getCountByHeight(): Int {
-        return height / getSize()
+    fun setDirection(direction: Int){
+        Log.d(TAG,"PLAY_setDirection")
+        playingFeldUI.setDirection(direction)
+        mHandler.removeCallbacks(mSnakeRunnable)
+        invalidate()
     }
 }

@@ -11,8 +11,7 @@ import com.example.snakess.presention.credentials.authorization.AuthorizationFra
 import com.example.snakess.presention.credentials.loading.LoadingFragment
 import com.example.snakess.presention.credentials.registration.RegistrationFragment
 
-class LoginActivity : ABaseActivity(),
-    ILoginRouter {
+class LoginActivity : ABaseActivity(), ILoginRouter {
     companion object {
 
         private const val ARG_DROP_CREDENTIALS = "ARG_DROP_CREDENTIALS"
