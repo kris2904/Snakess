@@ -24,7 +24,6 @@ class CreategameActivity : ABaseActivity(),
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_creategame)
@@ -36,14 +35,8 @@ class CreategameActivity : ABaseActivity(),
         }
     }
 
-   /* override fun onBackPressed() {
-        super.onBackPressed()
-    }*/
-
-
     override fun showCreategame() {
         replace(CreateGameFragment())
-
     }
 
     override fun showLoabby() {

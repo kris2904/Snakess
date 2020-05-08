@@ -13,12 +13,12 @@ class GameRepository:IGameRepository{
     }
     fun fetchPlayers(observable:(List<GameResult>)->Unit){
             val mockDate= mutableListOf<GameResult>()
-           // val mockDate= ArrayList<GameResult>()
-            mockDate.add(GameResult(login = "Кристина",value = 0))
-            mockDate.add(GameResult(login = "Молодец",value = 0))
-            mockDate.add(GameResult(login = "Немного",value = 0))
+
+            mockDate.add(GameResult(login = "Пользователь1",value = 0))
+            mockDate.add(GameResult(login = "Пользователь2",value = 0))
+            mockDate.add(GameResult(login = "Пользователь3",value = 0))
             observable(mockDate)
-            //viewState.bindPlayers(date = mockDate)
+
         }
 
     }

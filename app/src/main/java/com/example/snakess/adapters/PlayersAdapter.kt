@@ -16,15 +16,10 @@ class PlayersAdapter: ABaseAdapter<GameResult, RecyclerView.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
         val view: View =
             TypeLobbyView(parent.context)
         return object : RecyclerView.ViewHolder(view) {}
     }
-
-   /* override fun getItemViewType(position: Int): Int {
-        return TYPE_LOBBY
-    }*/
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val view = holder.itemView

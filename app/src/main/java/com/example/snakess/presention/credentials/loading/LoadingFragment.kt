@@ -29,9 +29,6 @@ class LoadingFragment : ABaseFragment(), ILoaderView {
 
     override fun getViewId() = R.layout.fragment_loading
 
-
-    //-------------------------------Routing--------------------------------------------------------
-
     override fun showAuth() {
         activity?.let {
             if (it is ILoginRouter)
