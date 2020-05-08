@@ -7,6 +7,4 @@ interface ISnake {
     fun move()
     fun drawSnake(canvas: Canvas)
     fun addElementList()
-
-
 }

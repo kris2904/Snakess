@@ -17,13 +17,5 @@ class SnakePieces(var x: Int, var y: Int):ABaseGame() {
     init {
         this.snake=SnakeObject(x,y,Direction,isStart)
     }
-    /* fun drawSnake(canvas: Canvas){
-        // if(mSnakePaths[i].isStart)
-        canvas.drawCircle(
-            (x.toFloat()+(getCountByWidth().toFloat()*0.5f)),
-            (y.toFloat())+(getCountByHeight().toFloat()*0.5f),
-            getCountByWidth().toFloat()*0.5f,
-            paintHaid)
-    }*/
 
     }

@@ -21,17 +21,8 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     private val paintHaid = Paint().apply {
         color = Color.GREEN
     }
-    private var mGameView=GameView
     var mSnakePaths=ArrayList<SnakePieces>()
-  //  private  var snake=Snake()
     private var countPaths=3
-   // private var apple= Apple()
-    private val mHandler = Handler()
-   // private var scores = 0
-   // private val mSnakeRunnable=SnakeRunnable()
-    //private lateinit var gameView:IElementUI
-
-    //private val runSnake = SnakeRun()
     private val bgPaint = Paint().apply { color = Color.GRAY }
 
     override var width: Int = 0
