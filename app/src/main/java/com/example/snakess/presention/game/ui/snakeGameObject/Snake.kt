@@ -3,7 +3,7 @@ package com.example.snakess.presention.game.ui.snakeGameObject
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import com.example.snakess.presention.game.ui.PlayingFeldUI
+
 
 class Snake:ISnake {
     private val paintHaid = Paint().apply {
