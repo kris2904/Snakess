@@ -7,41 +7,53 @@ import android.graphics.Rect
 import android.os.Handler
 import android.util.Log
 import com.example.snakess.presention.game.GameView
-import com.example.snakess.presention.game.ui.snakeGameObject.ABaseGame
-import com.example.snakess.presention.game.ui.snakeGameObject.Snake
-import com.example.snakess.presention.game.ui.snakeGameObject.SnakePieces
+import com.example.snakess.presention.game.ui.snakeGameObject.*
 import kotlin.random.Random
+import kotlin.collections.last as last
 
 //
 class PlayingFeldUI : IElementUI, ABaseGame() {
     val TAG = "PlayingFeldUI"
-    private val paintBody = Paint().apply {
-        color = Color.WHITE
-    }
-    private val paintHaid = Paint().apply {
-        color = Color.GREEN
-    }
-    var mSnakePaths=ArrayList<SnakePieces>()
-    private var countPaths=3
+    private val paintBody = Paint().apply { color = Color.WHITE }
+    private val paintHaid = Paint().apply { color = Color.GREEN }
     private val bgPaint = Paint().apply { color = Color.GRAY }
+
+    var mSnakePaths=ArrayList<SnakeObject>()
+    private var countPaths=3
+    private var mApple = Apple(158,0)
 
     override var width: Int = 0
     override var height: Int = 0
 
     init {
         var random = Random(System.currentTimeMillis())
+       if(mApple.x==158){
+           mApple=generateApple()
+       }
         addElementList()
     }
 
     override fun render(canvas: Canvas) {
         canvas.drawRect(Rect(0, 0, width, height), bgPaint)
         drawSnake(canvas)
+        render_snake(canvas)
+
     }
 
     override fun render_snake(canvas: Canvas) {
+        canvas.drawCircle(
+            (mApple.x.toFloat()) + (getCountByWidth().toFloat() * 0.5f),
+            (mApple.y.toFloat()) + (getCountByHeight().toFloat() * 0.5f),
+            getCountByWidth().toFloat() * 0.5f,
+            paintBody
+        )
     }
 
     fun move() {
+        if (mSnakePaths[0].x == mApple.x && mSnakePaths[0].y == mApple.y) {
+            addPathSnake()
+            mApple = Apple(158,0)
+        }
         Log.d(TAG, "move")
         var previousDirection = mSnakePaths[0].Direction
         for (i in 0 until mSnakePaths.size) {
@@ -90,9 +102,9 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
             if (mSnakePaths.isEmpty()) {
                 for (i in 0 until countPaths) {
                     mSnakePaths.add(
-                        SnakePieces(
+                        SnakeObject(
                             getStartX() + (countPaths - 1 - i) * getSize(),
-                            getStartY()
+                            getStartY(),GameView.RIGHT_DIRECTION,false
                         )
                     )
                     if (i == 0) {
@@ -120,6 +132,7 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
                         paintBody
                     )
             }
+
             //snake.drawSnake(canvas)
 
         }
@@ -143,6 +156,47 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
             GameView.TOP_DIRECTION -> {
                 if (mSnakePaths[0].Direction != GameView.BOTTOM_DIRECTION)
                     mSnakePaths[0].Direction = direction
+            }
+        }
+    }
+    //
+    fun generateApple():Apple{
+        val resApple=Apple(getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize(),
+            getStartY() + (Math.random() * getCountByHeight()).toInt() * getSize()
+        )
+        for(i in 0 until mSnakePaths.size){
+            if(mSnakePaths[i].x==resApple.x && mSnakePaths[i].y==resApple.y)
+                return generateApple()
+        }
+        return resApple
+    }
+
+    fun addPathSnake(){
+        val lastPath=mSnakePaths.last()
+        when( lastPath.Direction) {
+            GameView.RIGHT_DIRECTION -> {
+                val mPath = SnakeObject( lastPath.x - getSize(), lastPath.y, lastPath.Direction,false)
+                if (mPath.x < getStartX())
+                    mPath.x = getStartX() + getCountByWidth() * getSize()
+                mSnakePaths.add(mPath)
+            }
+            GameView.LEFT_DIRECTION -> {
+                val mPath = SnakeObject(lastPath.x + getSize(), lastPath.y,lastPath.Direction,false)
+                if (mPath.x > width - getStartX())
+                    mPath.x = getStartX()
+                mSnakePaths.add(mPath)
+            }
+            GameView.BOTTOM_DIRECTION -> {
+                val mPath = SnakeObject(lastPath.x, lastPath.y - getSize(),lastPath.Direction,false)
+                if (mPath.y < getStartY())
+                    mPath.y = getStartY() + getCountByHeight() * getSize()
+                mSnakePaths.add(mPath)
+            }
+            GameView.TOP_DIRECTION -> {
+                val mPath = SnakeObject(lastPath.x, lastPath.y + getSize(),lastPath.Direction,false)
+                if (mPath.y > height - getStartY())
+                    mPath.y = getStartY()
+                mSnakePaths.add(mPath)
             }
         }
     }

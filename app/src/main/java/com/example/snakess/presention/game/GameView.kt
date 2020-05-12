@@ -81,11 +81,13 @@ class GameView @JvmOverloads constructor(
         playingFeldUI.width = width
         playingFeldUI.height = height
         playingFeldUI.render(canvas)
-
         mHandler.postDelayed(mSnakeRunnable, 500L)
 
     }
-
+   fun addApple(){
+    playingFeldUI.generateApple()
+    invalidate()
+ }
    fun moveSnake() {
         playingFeldUI.move()
        invalidate()
@@ -96,12 +98,13 @@ class GameView @JvmOverloads constructor(
             Log.d(TAG,"run")
             render()
             moveSnake()
+            addApple()
+
         }
     }
     fun setDirection(direction: Int){
         Log.d(TAG,"PLAY_setDirection")
         playingFeldUI.setDirection(direction)
-        mHandler.removeCallbacks(mSnakeRunnable)
         invalidate()
     }
 }
