@@ -20,23 +20,27 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
 
     var mSnakePaths=ArrayList<SnakeObject>()
     private var countPaths=3
-    private var mApple = Apple(158,0)
+    private var mApple = Apple(getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize(),
+        getStartY() + (Math.random() * getCountByHeight()).toInt() * getSize())
 
     override var width: Int = 0
     override var height: Int = 0
 
     init {
         var random = Random(System.currentTimeMillis())
-       if(mApple.x==158){
+    /*   if(mApple.x==getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize()){
            mApple=generateApple()
-       }
+       }*/
+       /*if(mApple.x==-1){
+            generateApple()
+        }*/
         addElementList()
     }
 
     override fun render(canvas: Canvas) {
         canvas.drawRect(Rect(0, 0, width, height), bgPaint)
         drawSnake(canvas)
-        render_snake(canvas)
+       // render_snake(canvas)
 
     }
 
@@ -50,9 +54,10 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     }
 
     fun move() {
+
         if (mSnakePaths[0].x == mApple.x && mSnakePaths[0].y == mApple.y) {
             addPathSnake()
-            mApple = Apple(158,0)
+            mApple=Apple(generateApple().x, generateApple().y)
         }
         Log.d(TAG, "move")
         var previousDirection = mSnakePaths[0].Direction
@@ -113,6 +118,16 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
                 }
             }
         }
+    fun generateApple():Apple{
+        val resApple=Apple((Math.random() * getCountByWidth()).toInt()*getSize() ,
+            (Math.random() * getCountByHeight()).toInt()*getSize()
+        )
+        for(i in 0 until mSnakePaths.size){
+            if(mSnakePaths[i].x==resApple.x && mSnakePaths[i].y==resApple.y)
+                return generateApple()
+        }
+        return resApple
+    }
 
         fun drawSnake(canvas: Canvas) {
 
@@ -132,7 +147,12 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
                         paintBody
                     )
             }
-
+            canvas.drawCircle(
+                (mApple.x.toFloat()) + (getCountByWidth().toFloat() * 0.5f),
+                (mApple.y.toFloat()) + (getCountByHeight().toFloat() * 0.5f),
+                getCountByWidth().toFloat() * 0.5f,
+                paintBody
+            )
             //snake.drawSnake(canvas)
 
         }
@@ -160,16 +180,7 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
         }
     }
     //
-    fun generateApple():Apple{
-        val resApple=Apple(getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize(),
-            getStartY() + (Math.random() * getCountByHeight()).toInt() * getSize()
-        )
-        for(i in 0 until mSnakePaths.size){
-            if(mSnakePaths[i].x==resApple.x && mSnakePaths[i].y==resApple.y)
-                return generateApple()
-        }
-        return resApple
-    }
+
 
     fun addPathSnake(){
         val lastPath=mSnakePaths.last()
