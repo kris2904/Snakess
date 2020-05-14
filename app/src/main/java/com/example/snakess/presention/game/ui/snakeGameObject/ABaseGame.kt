@@ -4,12 +4,11 @@ import com.example.snakess.presention.game.GameView
 import com.example.snakess.presention.game.ui.PlayingFeldUI
 
 abstract class ABaseGame {
-
      open var width:Int=0
      open var height:Int=0
 
     fun getStartX():Int{
-        return (width - getCountByWidth() * getSize()) / 2
+        return (width -getCountByWidth() * getSize()) / 2
     }
     fun getStartY():Int{
         return (height -getCountByHeight() * getSize()) / 2

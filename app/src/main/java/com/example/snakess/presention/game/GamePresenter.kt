@@ -15,23 +15,22 @@ class GamePresenter: MvpPresenter<IGameView> {
     }
 
     fun right() {
-
         viewState.goRight()
     }
 
     fun left() {
-
         viewState.goLeft()
     }
 
     fun top() {
-
       viewState.goTop()
     }
 
    fun bottom() {
-
        viewState.goBottom()
+    }
+    fun showScore(){
+        viewState.showScore(0)
     }
 
 }

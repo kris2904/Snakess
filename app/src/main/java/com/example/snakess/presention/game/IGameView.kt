@@ -7,4 +7,5 @@ interface IGameView: MvpView {
     fun goLeft()
     fun goTop()
     fun goBottom()
+    fun showScore(scor:Int)
 }

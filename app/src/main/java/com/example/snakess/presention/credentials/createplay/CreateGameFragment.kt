@@ -9,9 +9,11 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 
 import com.example.snakess.R
+import com.example.snakess.activitys.GameActivity
 import com.example.snakess.base.ABaseFragment
 import com.example.snakess.domain.di.coponents.DaggerAppComponent
 import com.example.snakess.presention.routers.ICreategameRouter
+import com.example.snakess.presention.routers.IGameRouter
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import javax.inject.Inject
 
@@ -31,7 +33,7 @@ class CreateGameFragment : ABaseFragment(),ICreateGameView {
        DaggerAppComponent.create().inject(this)
     }
     override fun getViewId()=R.layout.fragment_create_game
-    var add_remuv_players:Int=2
+    var add_remuv_players:Int=1
     //------------------------------------------------
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,9 +64,9 @@ class CreateGameFragment : ABaseFragment(),ICreateGameView {
 
         txt_remuve_player.setOnClickListener {
 
-            if (add_remuv_players <= 2) {
+            if (add_remuv_players <= 1) {
 
-                toast(stringId = R.string.error_kol_menshe_players)
+              //  toast(stringId = R.string.error_kol_menshe_players)
                 return@setOnClickListener
             }
             else{
@@ -83,6 +85,10 @@ class CreateGameFragment : ABaseFragment(),ICreateGameView {
             if (it is ICreategameRouter)
                 it.showLoabby()
         }
+    }
+
+    override fun showGameActivity() {
+       GameActivity.show()
     }
 
     override fun lock() {

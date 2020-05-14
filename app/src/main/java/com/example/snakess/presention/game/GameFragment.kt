@@ -39,6 +39,7 @@ class GameFragment : ABaseFragment(),IGameView {
         super.onViewCreated(view, savedInstanceState)
         if (savedInstanceState != null)
             return // Не будем пересоздавать фрагмент, пусть берется старый из стека
+        presenterGame.showScore()
         snake_right.setOnClickListener(){
             presenterGame.right()
         }
@@ -70,6 +71,9 @@ class GameFragment : ABaseFragment(),IGameView {
         playing_field.setDirection(GameView.BOTTOM_DIRECTION)
     }
 
+    override fun showScore(scor: Int) {
+        game_result.text="$scor"
+    }
 
 
 }

@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.os.Handler
 import android.util.Log
+import com.example.snakess.presention.game.GameFragment
 import com.example.snakess.presention.game.GameView
 import com.example.snakess.presention.game.ui.snakeGameObject.*
 import kotlin.random.Random
@@ -17,23 +18,23 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     private val paintBody = Paint().apply { color = Color.WHITE }
     private val paintHaid = Paint().apply { color = Color.GREEN }
     private val bgPaint = Paint().apply { color = Color.GRAY }
-
+    var x:Int=0
+    var y:Int=0
     var mSnakePaths=ArrayList<SnakeObject>()
     private var countPaths=3
-    private var mApple = Apple(getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize(),
-        getStartY() + (Math.random() * getCountByHeight()).toInt() * getSize())
+    var mApple=Apple(x,y)
+
+    lateinit var gameFragment: GameFragment
+    var score=0
 
     override var width: Int = 0
     override var height: Int = 0
 
     init {
         var random = Random(System.currentTimeMillis())
-    /*   if(mApple.x==getStartX() + (Math.random() * getCountByWidth()).toInt() * getSize()){
-           mApple=generateApple()
-       }*/
-       /*if(mApple.x==-1){
-            generateApple()
-        }*/
+        mApple=Apple(getStartX()+random.nextInt(0,100)*getCountByWidth()*getSize(),getStartY()+random.nextInt(0,100)*getCountByHeight()*getSize())
+        Log.d(TAG,"x== "+mApple.x)
+        Log.d(TAG,"y=="+mApple.y)
         addElementList()
     }
 
@@ -44,7 +45,23 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
 
     }
 
+    fun addElementList() {
+        if (mSnakePaths.isEmpty()) {
+            for (i in 0 until countPaths) {
+                mSnakePaths.add(
+                    SnakeObject(
+                        getStartX() + (countPaths - 1 - i) * getSize(),
+                        getStartY(),GameView.RIGHT_DIRECTION,false
+                    )
+                )
+                if (i == 0) {
+                    mSnakePaths.last().isStart = true
+                }
+            }
+        }
+    }
     override fun render_snake(canvas: Canvas) {
+
         canvas.drawCircle(
             (mApple.x.toFloat()) + (getCountByWidth().toFloat() * 0.5f),
             (mApple.y.toFloat()) + (getCountByHeight().toFloat() * 0.5f),
@@ -54,10 +71,11 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
     }
 
     fun move() {
-
         if (mSnakePaths[0].x == mApple.x && mSnakePaths[0].y == mApple.y) {
+         /*   score += 2
+            gameFragment.showScore(score)*/
             addPathSnake()
-            mApple=Apple(generateApple().x, generateApple().y)
+            mApple=generateApple()
         }
         Log.d(TAG, "move")
         var previousDirection = mSnakePaths[0].Direction
@@ -103,29 +121,10 @@ class PlayingFeldUI : IElementUI, ABaseGame() {
         }*/
             }
 
-        fun addElementList() {
-            if (mSnakePaths.isEmpty()) {
-                for (i in 0 until countPaths) {
-                    mSnakePaths.add(
-                        SnakeObject(
-                            getStartX() + (countPaths - 1 - i) * getSize(),
-                            getStartY(),GameView.RIGHT_DIRECTION,false
-                        )
-                    )
-                    if (i == 0) {
-                        mSnakePaths.last().isStart = true
-                    }
-                }
-            }
-        }
     fun generateApple():Apple{
         val resApple=Apple((Math.random() * getCountByWidth()).toInt()*getSize() ,
             (Math.random() * getCountByHeight()).toInt()*getSize()
         )
-        for(i in 0 until mSnakePaths.size){
-            if(mSnakePaths[i].x==resApple.x && mSnakePaths[i].y==resApple.y)
-                return generateApple()
-        }
         return resApple
     }
 

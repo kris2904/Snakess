@@ -17,12 +17,14 @@ class GameView @JvmOverloads constructor(
 
     private val mHandler = Handler()
     private val mSnakeRunnable = SnakeRunnable()
+    lateinit var gameFragment:GameFragment
 
     companion object {
         const val RIGHT_DIRECTION = -1
         const val BOTTOM_DIRECTION = -2
         const val LEFT_DIRECTION = -3
         const val TOP_DIRECTION = -4
+
     }
 
     private var sfHolder: SurfaceHolder? = null
@@ -82,6 +84,7 @@ class GameView @JvmOverloads constructor(
         playingFeldUI.height = height
         playingFeldUI.render(canvas)
         mHandler.postDelayed(mSnakeRunnable, 500L)
+
 
     }
 
